@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 function EditTodoForm() {
 
-  const [newTitle, setNewTitle] = useState("Title");
-  const [newDescription, setNewDescription] = useState("Description");
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

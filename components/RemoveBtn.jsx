@@ -1,3 +1,5 @@
+import { HiOutlineTrash } from "react-icons/hi"
+
 const RemoveBtn = () => {
 
   /** ========================== delete data from database ========================== */
@@ -16,7 +18,7 @@ const RemoveBtn = () => {
 
   return (
     <button onClick={removeTodo} className="text-red-400  hover:text-red-600 transition-all duration-300 ease-in-out">
-        Del
+        <HiOutlineTrash size={24} />
     </button>
   )
 }
