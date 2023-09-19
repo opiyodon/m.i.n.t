@@ -1,24 +1,24 @@
 import Link from 'next/link';
 import RemoveBtn from './RemoveBtn';
-import { HiPencilAlt } from "react-icons/hi"
+import { HiPencilAlt } from 'react-icons/hi';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-const getTodos = async() => {
+const getTodos = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/todos', {
-      cache: "no-store",
+    const res = await fetch(API_URL, {
+      cache: 'no-store',
     });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch todos");
+      throw new Error('Failed to fetch todos');
     }
 
     return res.json();
   } catch (error) {
-    console.log("Error loading todos: ", error);
+    console.error('Error loading todos: ', error);
   }
 };
-
 
 async function Todos() {
   const { todos } = await getTodos();

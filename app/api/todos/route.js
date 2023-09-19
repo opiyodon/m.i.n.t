@@ -11,7 +11,7 @@ export async function POST(req) {
 
 export async function GET() {
   await connectToMongoDB();
-  const todos = await Todo.find();
+  const todos = await Todo.find().sort({ createdAt: -1 });
   return NextResponse.json({ todos });
 }
 
