@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaSun } from "react-icons/fa";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = ({ toggleDarkMode }) => {
   const [isSunIconVisible, setIsSunIconVisible] = useState(true); // State to toggle the icon
 
   const toggleIcon = () => {
@@ -20,9 +20,9 @@ const Navbar = () => {
             <Image
               src="/images/bg.jpg"
               alt="logo image"
-              width={32}
-              height={32}
-              className="flex flex-col justify-center items-center object-cover rounded-full w-8 h-8 transition-all duration-1000 ease-in-out"
+              width={48}
+              height={48}
+              className="flex flex-col justify-center items-center object-cover rounded-full w-12 h-12 border-2 border-primary transition-all duration-1000 ease-in-out"
             />
 
             <div className="font-bold text-2xl">
@@ -49,9 +49,9 @@ const Navbar = () => {
           onClick={toggleIcon}
           name="light_dark_toggler">
           {isSunIconVisible ? (
-            <FaSun className="w-6 h-6" />
-          ) : (
             <BsFillMoonStarsFill className="w-6 h-6" />
+          ) : (
+            <FaSun className="w-6 h-6" />
           )}
         </button>
       </div>

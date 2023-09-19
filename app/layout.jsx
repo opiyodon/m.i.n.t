@@ -6,11 +6,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export default function RootLayout({ children }) {
-
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => !prevDarkMode);
+    // Toggle the "DARK" class on the body element
+    document.body.classList.toggle("DARK");
   };
 
   return (
