@@ -38,7 +38,6 @@ async function Todos() {
 
           <div className="flex gap-2">
             <RemoveBtn id={t._id} />
-            {/* Use the correct todo ID in the Edit link */}
             <Link
               href={`/editTodo/${t._id}`}
               className="text-primary hover:text-secondary transition-all duration-300 ease-in-out"

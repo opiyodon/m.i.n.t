@@ -1,9 +1,9 @@
 import EditTodoForm from '/components/EditTodoForm';
 
 /** ========================== get data from database ========================== */
-{/*const getTodoById = async (id) => {
+const getTodoById = async (id) => {
   try {
-    const res = await fetch(`https://localhost:3000/api/todos/${10}`, {
+    const res = await fetch(`${API_URL}?id=${id}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -13,21 +13,27 @@ import EditTodoForm from '/components/EditTodoForm';
   }
   catch (error) {
     console.log(error);
+    return null; // Return null in case of an error
   }
-}*/}
+}
 /** ========================== get data from database ========================== */
 
-function EditTodo() {
+async function EditTodo({ params }) {
 
   /** ========================== get data from database ========================== */
-  {/*const { id } = params;
-  const { todo } = await getTodoById(10);
-const { title, description } = todo;*/}
+  const { id } = params;
+  const result = await getTodoById(id);
+  
+  // Check if 'result' contains 'todo'
+  const { todo } = result || {};
+  
+  // Check if 'todo' exists before destructuring it
+  const { title, description } = todo || {};
   /** ========================== get data from database ========================== */
 
   return (
     <div className="min-h-[82vh] w-[100%] flex gap-28 justify-center p-10">
-      <EditTodoForm />
+      <EditTodoForm id={id} title={title} description={description} />
     </div>
   )
 }

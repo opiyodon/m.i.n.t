@@ -13,6 +13,6 @@ export async function PUT(request, { params }) {
 export async function GET(request, { params }) {
   const { id } = params;
   await connectToMongoDB();
-  const todos = await Todo.findOne({ _id: id });
-  return NextResponse.json({ todos }, { status: 200 });
+  const todo = await Todo.findOne({ _id: id }); // Change 'todos' to 'todo'
+  return NextResponse.json({ todo }, { status: 200 }); // Return 'todo' object
 }
