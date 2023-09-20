@@ -25,9 +25,6 @@ async function Todos() {
 
   return (
     <>
-      {/*  {todos.map((t) => (
-        
-      ))}  */}
       {todos &&
         todos.map((t) => (
           <div
