@@ -30,7 +30,7 @@ function EditTodoForm({ id }) {
           console.log("Response Data:", data);
   
           // Destructure the _id, title, and description from the data received
-          const { _id, title, description } = data.todo;
+          const { title, description } = data.todo;
   
           // Now you can use _id, title, and description as needed
           setNewTitle(title);
@@ -40,7 +40,10 @@ function EditTodoForm({ id }) {
           console.error("Error loading todo: ", error);
         });
     }
+    // Disable ESLint rule for the line below
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
