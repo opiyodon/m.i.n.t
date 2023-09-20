@@ -14,9 +14,9 @@ const Navbar = ({ toggleDarkMode }) => {
 
   return (
     <nav className="flex gap-5 p-7 bg-light_bg_dim items-center justify-center top-0 sticky w-[100%]">
-      <div>
+      <div className="flex items-center justify-center">
         <Link href={"/"}>
-          <div className="flex gap-1 cursor-pointer px-10 justify-center">
+          <div className="flex gap-1 cursor-pointer px-10 items-center justify-center">
             <Image
               src="/images/bg.jpg"
               alt="logo image"
@@ -25,10 +25,10 @@ const Navbar = ({ toggleDarkMode }) => {
               className="flex flex-col justify-center items-center object-cover rounded-full w-12 h-12 border-2 border-primary transition-all duration-1000 ease-in-out"
             />
 
-            <div className="font-bold text-2xl">
-              M.I
+            <div className="font-bold font-clicker text-2xl">
+              M.i
               <span className="text-primary transition-all duration-300">
-                .N.T
+                .N.t
               </span>
             </div>
           </div>

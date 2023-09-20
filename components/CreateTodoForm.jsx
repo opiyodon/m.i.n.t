@@ -14,7 +14,7 @@ function CreateTodoForm() {
     e.preventDefault();
 
     if (!title || !description) {
-        setError("Title and Description are required.");
+      setError("Title and Description are required.");
       return;
     }
 
@@ -39,18 +39,25 @@ function CreateTodoForm() {
         setError("Failed to create Todo");
       }
     } catch (error) {
-        setError(error);
+      setError(error);
     }
     /** ========================== post data from database ========================== */
   };
 
   return (
-    <div className="p-20">
+    <div className="flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
         action=""
         method="POST"
-        className="flex flex-col gap-4 items-center justify-center w-[500px] h-[100%] bg-light_bg_dim text-light_txt outline-none p-16 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
+        className="flex flex-col gap-4 items-center justify-center w-[500px] h-[100%] bg-light_bg_dim text-light_txt outline-none px-28 py-5 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
+
+        {error && (
+          <div className="border-secondary border-2 text-red-500 font-bold w-fit text-sm py-2 px-5 rounded-full">
+            {error}
+          </div>
+        )}
+
         <div className="flex items-center justify-center">
           <h1 className="text-2xl font-semibold text-primary pb-4">
             Create Todo
@@ -82,12 +89,6 @@ function CreateTodoForm() {
             Add Todo
           </button>
         </div>
-
-        {error && (
-            <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
-              {error}
-            </div>
-          )}
       </form>
     </div>
   );

@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <title>M.I.N.T</title>
       </head>
       <body
-        className={`bg-light_bg_bright font-sans text-light_txt transition-all duration-1000 ease-in-out ${
+        className={`bg-light_bg_bright font-poppins text-light_txt transition-all duration-1000 ease-in-out ${
           darkMode ? "" : "DARK"
         }`}>
         <Navbar toggleDarkMode={toggleDarkMode} />

@@ -37,6 +37,23 @@
     }
 }
 
+/* ====================================================================================================================
+  ================================   CUSTOMIZED SCROLL BAR   ==============================================================
+  ==================================================================================================================== */
+::-webkit-scrollbar{
+    width: 1.2vw;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--light_bg_dim);
+}
+
+::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(to right bottom, var(--secondary), var(--primary));
+    border: 0.3vw solid var(--light_bg_dim);
+    border-radius: 100vw;
+}
+
 
 body.DARK{
     @apply DARK_MODE;

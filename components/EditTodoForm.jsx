@@ -78,12 +78,19 @@ function EditTodoForm({ id }) {
   };
 
   return (
-    <div className="p-20">
+    <div className="flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
         action=""
         method="POST"
-        className="flex flex-col gap-4 items-center justify-center w-[500px] h-[100%] bg-light_bg_dim text-light_txt outline-none p-16 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
+        className="flex flex-col gap-4 items-center justify-center w-[500px] h-[100%] bg-light_bg_dim text-light_txt outline-none px-28 py-5 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
+
+        {error && (
+          <div className="border-secondary border-2 text-red-500 font-bold w-fit text-sm py-2 px-5 rounded-full">
+            {error}
+          </div>
+        )}
+        
         <div className="flex items-center justify-center">
           <h1 className="text-2xl font-semibold text-primary pb-4">
             Edit Todo
@@ -117,6 +124,7 @@ function EditTodoForm({ id }) {
             Update Todo
           </button>
         </div>
+
       </form>
     </div>
   );
