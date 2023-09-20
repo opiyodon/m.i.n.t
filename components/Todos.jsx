@@ -6,7 +6,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const getTodos = async () => {
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${API_URL}/api/todos`, {
       cache: 'no-store',
     });
 

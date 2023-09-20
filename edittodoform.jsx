@@ -4,21 +4,17 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 function EditTodoForm({ id }) {
+
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [error, setError] = useState("");
 
   const router = useRouter();
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
   useEffect(() => {
     if (id) {
       // Fetch data using the id from the route
-      fetch(`${API_URL}/api/todos/${id}`, {
-        // Assuming your API URL is structured like this
-        cache: "no-store",
-      })
+      fetch(`/api/todos/${id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch todo");
@@ -26,15 +22,9 @@ function EditTodoForm({ id }) {
           return response.json();
         })
         .then((data) => {
-          // Debugging: Log the response data
-          console.log("Response Data:", data);
-  
-          // Destructure the _id, title, and description from the data received
-          const { _id, title, description } = data.todo;
-  
-          // Now you can use _id, title, and description as needed
-          setNewTitle(title);
-          setNewDescription(description);
+          // Set the fetched data in state
+          setNewTitle(data.title);
+          setNewDescription(data.description);
         })
         .catch((error) => {
           console.error("Error loading todo: ", error);
@@ -110,7 +100,8 @@ function EditTodoForm({ id }) {
         <div className="flex items-center justify-center pt-5">
           <button
             type="submit"
-            className="py-3 px-16 text-black rounded-full bg-primary font-bold hover:bg-secondary transition-all duration-300 ease-in-out">
+            className="py-3 px-16 text-black rounded-full bg-primary font-bold hover:bg-secondary transition-all duration-300 ease-in-out"
+          >
             Update Todo
           </button>
         </div>

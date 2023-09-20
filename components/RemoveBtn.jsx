@@ -10,7 +10,7 @@ const RemoveBtn = ({ id }) => {
 
   const removeTodo = async () => {
     try {
-      const res = await fetch(`${API_URL}?id=${id}`, {
+      const res = await fetch(`${API_URL}/api/todos/?id=${id}`, {
         method: "DELETE",
       });
 
