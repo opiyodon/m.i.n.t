@@ -23,8 +23,8 @@ function Landing() {
 
         <div className="flex flex-col items-center justify-center w-[100%] lg:w-[450px] h-[240px] bg-light_bg_dim text-light_txt outline-none p-3 md:p-10 border-2 rounded-lg border-light_border_bright border-opacity-50">
           <div className="flex gap-2">
-            <span className="text-secondary text-7xl">"</span>
-            <p className="pt-3">Embrace the art of M.I.N.T : Manage, Inspire, Nurture, and Transform. With every task, cultivate the seeds of possibility, let your intentions bloom, and watch your aspirations flourish like a garden of dreams."</p>
+            <span className="text-secondary text-7xl">&ldquo;</span>
+            <p className="pt-3">Embrace the art of M.I.N.T : Manage, Inspire, Nurture, and Transform. With every task, cultivate the seeds of possibility, let your intentions bloom, and watch your aspirations flourish like a garden of dreams.&rdquo;</p>
           </div>
         </div>
       </div>
