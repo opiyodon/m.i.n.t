@@ -13,7 +13,7 @@ const Navbar = ({ toggleDarkMode }) => {
   };
 
   return (
-    <nav className="flex gap-5 p-7 bg-light_bg_dim items-center justify-center top-0 sticky w-[100%]">
+    <nav className="flex gap-5 p-7 bg-light_bg_dim items-center justify-center top-0 sticky z-10 w-full">
       <div className="flex items-center justify-center">
         <Link href={"/"}>
           <div className="flex gap-1 cursor-pointer px-10 items-center justify-center">

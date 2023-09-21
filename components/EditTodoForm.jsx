@@ -21,7 +21,7 @@ function EditTodoForm({ id }) {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Failed to fetch todo");
+            throw new Error("Failed to fetch todo!");
           }
           return response.json();
         })
@@ -37,7 +37,7 @@ function EditTodoForm({ id }) {
           setNewDescription(description);
         })
         .catch((error) => {
-          console.error("Error loading todo: ", error);
+          setError(error);
         });
     }
     // Disable ESLint rule for the line below
@@ -49,7 +49,7 @@ function EditTodoForm({ id }) {
     e.preventDefault();
 
     if (!newTitle || !newDescription) {
-      setError("Title and Description are required.");
+      setError("Title and Description are required!");
       return;
     }
 
@@ -70,10 +70,10 @@ function EditTodoForm({ id }) {
         form.reset();
         router.push("/");
       } else {
-        setError("Failed to update Todo");
+        setError("Failed to update Todo!");
       }
     } catch (error) {
-      console.error(error);
+      setError(error);
     }
   };
 
@@ -83,7 +83,7 @@ function EditTodoForm({ id }) {
         onSubmit={handleSubmit}
         action=""
         method="POST"
-        className="flex flex-col gap-4 items-center justify-center w-[500px] h-[100%] bg-light_bg_dim text-light_txt outline-none px-28 py-5 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
+        className="flex flex-col gap-4 items-center justify-center w-[350px] h-[100%] md:w-[500px] md:h-[500px] lg:h-[100%] bg-light_bg_dim text-light_txt outline-none lg:px-28 py-5 border-2 rounded-lg border-light_border_bright border-opacity-50 focus:border-primary">
 
         {error && (
           <div className="border-secondary border-2 text-red-500 font-bold w-fit text-sm py-2 px-5 rounded-full">

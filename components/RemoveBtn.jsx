@@ -1,10 +1,12 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRouter } from "next/navigation"; // Import 'next/navigation'
+import { useState } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const RemoveBtn = ({ id }) => {
-  const router = useRouter(); // Initialize the router inside the component function
+  const router = useRouter();
+  const [error, setError] = useState("");
 
   /** ========================== delete data from database ========================== */
 
@@ -17,23 +19,29 @@ const RemoveBtn = ({ id }) => {
       if (res.ok) {
         router.refresh(); // Refresh the page
       } else {
-        throw new Error("Failed to delete todo");
+        setError("Failed to delete todo");
       }
     } catch (error) {
-      console.error("Error deleting todo: ", error);
-      // Handle error, e.g., by displaying an error message to the user.
+      setError(error);
     }
   };
 
   /** ========================== delete data from database ========================== */
 
   return (
-    <button
-      onClick={removeTodo}
-      className="text-red-400 hover:text-red-600 transition-all duration-300 ease-in-out"
-    >
-      <HiOutlineTrash size={24} />
-    </button>
+    <div className="max-w-fit">
+      <button
+        onClick={removeTodo}
+        className="text-red-400 hover:text-red-600 transition-all duration-300 ease-in-out">
+        <HiOutlineTrash size={24} />
+      </button>
+
+      {error && (
+        <div className="border-secondary border-2 text-red-500 bg-light_bg_dim font-bold w-fit text-sm py-2 px-5 rounded-full absolute top-3 left-5 mt-3 z-10">
+          {error}
+        </div>
+      )}
+    </div>
   );
 };
 
